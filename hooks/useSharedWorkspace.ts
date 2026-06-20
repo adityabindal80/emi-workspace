@@ -13,7 +13,8 @@ type Props = {
 export default function useSharedWorkspace({ state, setState }: Props) {
   const [tabId, setTabId] = useState("");
   const channelRef = useRef<BroadcastChannel | null>(null);
-  const isReceivingRef = useRef(false);
+
+  const skipNextBroadcastRef = useRef(false);
 
   useEffect(() => {
     const id = crypto.randomUUID();
@@ -28,12 +29,8 @@ export default function useSharedWorkspace({ state, setState }: Props) {
       if (message.sourceTabId === id) return;
 
       if (message.type === "STATE_UPDATE") {
-        isReceivingRef.current = true;
+        skipNextBroadcastRef.current = true;
         setState(message.payload);
-
-        setTimeout(() => {
-          isReceivingRef.current = false;
-        }, 0);
       }
     };
 
@@ -45,7 +42,11 @@ export default function useSharedWorkspace({ state, setState }: Props) {
   useEffect(() => {
     if (!channelRef.current) return;
     if (!tabId) return;
-    if (isReceivingRef.current) return;
+
+    if (skipNextBroadcastRef.current) {
+      skipNextBroadcastRef.current = false;
+      return;
+    }
 
     channelRef.current.postMessage({
       type: "STATE_UPDATE",
