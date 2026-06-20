@@ -2,6 +2,13 @@
 
 A Next.js EMI Calculator with real-time shared workspace across browser tabs.
 
+## Deployed URL (Live Demo)
+https://emi-workspace.vercel.app
+
+## GitHub Repository
+
+https://github.com/adityabindal80/emi-workspace
+
 ## Features
 
 - EMI calculator using reducing-balance formula
