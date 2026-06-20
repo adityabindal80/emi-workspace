@@ -16,7 +16,7 @@ export default function ModeTabs({ mode, onChange }: Props) {
 
   return (
     <div className="mt-6 flex gap-2 rounded-2xl border bg-white p-2 shadow-sm">
-      {tabs.map((tab) => (
+      {tabs.map((tab) => ( 
         <button
           key={tab.value}
           onClick={() => onChange(tab.value)}

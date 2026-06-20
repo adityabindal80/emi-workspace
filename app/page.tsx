@@ -95,6 +95,7 @@ return {
 <p className="mt-2 text-sm text-slate-500">
   Active Tabs: {activeTabs}
 </p>
+
 <button
   onClick={() =>
     setWorkspace((prev) => ({
@@ -140,7 +141,7 @@ return {
 
   <div className="h-4 overflow-hidden rounded-full bg-slate-200">
     <div
-      className="h-full bg-indigo-600"
+      className="h-full bg-amber-400"
       style={{
         width: `${results.split.principalPercent}%`,
       }}
@@ -149,7 +150,7 @@ return {
 
   <div className="mt-3 flex gap-6 text-sm text-slate-600">
     <div>
-      <span className="mr-2 inline-block h-3 w-3 rounded-full bg-indigo-600" />
+      <span className="mr-2 inline-block h-3 w-3 rounded-full bg-amber-400" />
       Principal
     </div>
     <div>
@@ -200,7 +201,9 @@ return {
           />
         </>
       )}
+  
     </section>
+    
   </main>
   );
 }

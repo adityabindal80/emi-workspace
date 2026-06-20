@@ -134,9 +134,9 @@ function exportCSV() {
                       )}
                     </td>
                     <td className="p-3">{formatCurrency(row.emi)}</td>
-                    <td className="p-3">{formatCurrency(row.principalPaid)}</td>
-                    <td className="p-3">{formatCurrency(row.interestPaid)}</td>
-                    <td className="p-3">{formatCurrency(row.balanceRemaining)}</td>
+                    <td className="p-3 text-indigo-600">{formatCurrency(row.principalPaid)}</td>
+                    <td className="p-3 text-amber-600">{formatCurrency(row.interestPaid)}</td>
+                    <td className="p-3 ">{formatCurrency(row.balanceRemaining)}</td>
                   </tr>
                 ))}
               </tbody>
